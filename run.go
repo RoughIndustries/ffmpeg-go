@@ -24,7 +24,9 @@ func getInputArgs(node *Node) []string {
 			args = append(args, "-video_size", videoSize)
 		}
 		args = append(args, ConvertKwargsToCmdLineArgs(kwargs)...)
-		args = append(args, "-i", filename)
+		if len(filename) > 0 {
+			args = append(args, "-i", filename)
+		}
 	} else {
 		panic("unsupported node input name")
 	}
